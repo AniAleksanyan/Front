@@ -4,6 +4,9 @@ import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { Signup } from './pages/Signup'
 import { Login } from './pages/Login'
+import { Profile } from './pages/Profile/Dashboard'
+import { Settings } from './pages/Profile/Settings'
+import { Layout } from './pages/Profile/Layout'
 
 const routes = createBrowserRouter([
   {
@@ -13,6 +16,20 @@ const routes = createBrowserRouter([
   {
     path:'/login',
     element:<Login/>
+  },
+  {
+    path:'profile',
+    element:<Layout/>,
+    children:[
+      {
+        path: '',
+        element: <Profile/>,
+      },
+      {
+        path: 'settings',
+        element: <Settings/>,
+      }
+    ]
   }
 ])
 

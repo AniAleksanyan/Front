@@ -21,3 +21,5 @@ export interface IUserLogin{
     login: string
     password: string
 }
+
+export type IAccount = Omit <IUser, 'login'|'password'>

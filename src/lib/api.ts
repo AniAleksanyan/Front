@@ -16,3 +16,8 @@ export const apiSignIn = async (user: IUserLogin):Promise<IResponse> => {
     const response = await Axios.post('/login', user)
     return response.data
 }
+
+export const apiVerify = async():Promise<IResponse> => {
+    const response = await Axios.get('/verify')
+    return response.data
+}

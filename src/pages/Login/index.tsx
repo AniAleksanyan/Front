@@ -27,8 +27,6 @@ export function Login() {
                 navigate("/profile")
             }
         })
-        // axios.post
-
     }
     return (
         <MDBContainer fluid>
