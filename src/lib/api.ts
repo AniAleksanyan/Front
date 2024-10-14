@@ -21,3 +21,8 @@ export const apiVerify = async():Promise<IResponse> => {
     const response = await Axios.get('/verify')
     return response.data
 }
+
+export const apiLogOut = async():Promise<IResponse> => {
+    const response = await Axios.post('/logout')
+    return response.data
+}

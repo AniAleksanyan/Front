@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
-import { NavLink, Outlet, useNavigate } from "react-router-dom"
-import { apiVerify } from "../../lib/api"
+import { Link, NavLink, Outlet, useNavigate } from "react-router-dom"
+import { apiLogOut, apiVerify } from "../../lib/api"
 import { IAccount } from "../../lib/types";
 
 export const Layout = () => {
@@ -18,16 +18,35 @@ export const Layout = () => {
         })    
     },[])
 
+    const handleLogOut = () => {
+        apiLogOut()
+        .then(response =>{
+            if (response.status !== 'ok') {
+               alert("Logout error. Try again later.");
+            }else{
+                navigate("/login")
+            }
+        });
+    }
+
     return account && <>
         <nav>
-            <NavLink to="/profile" end>Profile</NavLink>
-            <NavLink to="/profile/settings">Settings</NavLink>
-            <NavLink to="/profile/followers">Followers</NavLink>
-            <NavLink to="/profile/photos">Photos</NavLink>
+            <div className="nav-container">
+                <div className="nav-logo">MyApp</div>
+                <div className="nav-links">
+                    <NavLink to="/profile" end>Profile</NavLink>
+                    <NavLink to="/profile/settings">Settings</NavLink>
+                    <NavLink to="/profile/followers">Followers</NavLink>
+                    <NavLink to="/profile/photos">Photos</NavLink>
+                </div>
+            </div> 
+            <div className="nav-logout">
+                <p onClick={handleLogOut}>Log Out</p>
+            </div>
         </nav>
-        <div style={{padding:20}}></div>
-        <Outlet/>
-        <p>{account.name}</p>
-        <p>{account.surname}</p>
+        <div className="content">
+            <Outlet/>
+            <p>{account.name} {account.surname}</p>
+        </div>
     </>
 }
