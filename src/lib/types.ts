@@ -8,7 +8,7 @@ export interface IUser{
     picture: string
     cover: string
 }
-export type inputUser = Pick<IUser, 'name'|'surname'|'login'|'password'>    
+export type inputUser = Pick<IUser, 'name'|'surname'|'login'|'password'>//pick-y vercnum e hamapataskhany
 
 export interface IResponse{
     status: string
@@ -22,4 +22,17 @@ export interface IUserLogin{
     password: string
 }
 
+export interface IUserChangePassword{
+    old: string
+    newpwd: string
+}
+
 export type IAccount = Omit <IUser, 'login'|'password'>
+
+export interface EditLoginRef {
+    handleSubmit: () => void;
+}
+
+export interface EditPasswordRef {
+    handleSubmit: () => void;
+}

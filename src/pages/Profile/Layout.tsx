@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react"
-import { Link, NavLink, Outlet, useNavigate } from "react-router-dom"
+import { NavLink, Outlet, useNavigate } from "react-router-dom"
 import { apiLogOut, apiVerify } from "../../lib/api"
 import { IAccount } from "../../lib/types";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const Layout = () => {
     const navigate = useNavigate();
@@ -30,6 +32,7 @@ export const Layout = () => {
     }
 
     return account && <>
+        <ToastContainer />
         <nav>
             <div className="nav-container">
                 <div className="nav-logo">MyApp</div>
@@ -45,8 +48,8 @@ export const Layout = () => {
             </div>
         </nav>
         <div className="content">
+            <p className="user-name">{account.name} {account.surname}</p>
             <Outlet/>
-            <p>{account.name} {account.surname}</p>
         </div>
     </>
 }
