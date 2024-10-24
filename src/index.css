@@ -116,9 +116,6 @@ form.settings-form > div > label {
 
 p.user-name {
   margin: 0;
-  border: 1px solid #42442e;
-  border-radius: 4px;
-  padding: 10px;
   font-size: 16px;
   font-weight: 900;
   font-style: italic;
@@ -127,4 +124,110 @@ p.user-name {
 
 input::placeholder {
   font-style: italic;
+}
+
+.profile-info{
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  /* border: 1px solid #42442e; */
+  /* border-radius: 4px; */
+  padding: 10px;
+
+}
+
+.profile-info img{
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #42442e;
+}
+
+.profile-image {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-image div > button:first-child{
+  margin-right: 20px;
+}
+
+/* Style the input wrapper */
+.custom-file-input {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  width: 100%;
+  max-width: 200px;
+}
+
+.custom-file-input input[type="file"] {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.custom-file-input .custom-file-label {
+  display: block;
+  background-color: #42442e;
+  color: #9caaad;
+  padding: 5px;
+  text-align: center;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 15px;
+  font-style: italic;
+}
+
+.custom-file-input .custom-file-label:hover {
+  background-color: #42442e;
+}
+
+.custom-file-input .file-name {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #42442e;
+  font-style: italic;
+}
+
+.upload-photo {
+  display: flex;
+  align-items: baseline;
+  flex-direction: column;
+}
+
+.upload-photo img{
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border: 2px solid #42442e;
+}
+
+.show-uploaded-imag {
+  display: flex;
+  align-items: baseline;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.show-uploaded-imag > div:first-child {
+  margin-bottom: 9px;
+}
+
+.show-uploaded-imag > div > button {
+  width: 95px;
+  border: none;
+  color: #9caaad;
+  background: #42442e;
+  font-style: italic;
+  border-radius: 4px;
+}
+
+.show-uploaded-imag > div > button:nth-child(2) {
+  background: #630b0b;
+  margin-left: 10px;
 }

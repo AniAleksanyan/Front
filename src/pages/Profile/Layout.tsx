@@ -44,12 +44,12 @@ export const Layout = () => {
                 </div>
             </div> 
             <div className="nav-logout">
+                <p className="user-name">{account.name} {account.surname}</p>
                 <p onClick={handleLogOut}>Log Out</p>
             </div>
         </nav>
         <div className="content">
-            <p className="user-name">{account.name} {account.surname}</p>
-            <Outlet/>
+            <Outlet context={{ account, setAccount }}/>
         </div>
     </>
 }

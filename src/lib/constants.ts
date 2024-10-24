@@ -1,1 +1,2 @@
 export const BASE_URL = 'http://localhost:4002'
+export const DEFAULT_PIC = 'https://cdn1.iconfinder.com/data/icons/date-and-time-39/24/user_account_profile_man_avatar_male_profile_picture_my_profile_default-512.png'

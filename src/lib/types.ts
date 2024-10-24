@@ -36,3 +36,8 @@ export interface EditLoginRef {
 export interface EditPasswordRef {
     handleSubmit: () => void;
 }
+
+export interface IContext {
+    account: IUser
+    setAccount: ( user:IUser ) => void
+}

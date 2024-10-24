@@ -36,3 +36,9 @@ export const apiUpdatePassword = async (body: IUserChangePassword):Promise<IResp
     const response = await Axios.patch('/update/password', body)
     return response.data
 }
+
+export const apiUploadProfile = async (form:FormData):Promise<IResponse> => {
+    const response = await Axios.patch('/profile/upload', form);
+    
+    return response.data
+}
