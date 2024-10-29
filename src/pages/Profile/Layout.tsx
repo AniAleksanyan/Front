@@ -41,6 +41,7 @@ export const Layout = () => {
                     <NavLink to="/profile/settings">Settings</NavLink>
                     <NavLink to="/profile/followers">Followers</NavLink>
                     <NavLink to="/profile/photos">Photos</NavLink>
+                    <NavLink to="/profile/posts">Posts</NavLink>
                 </div>
             </div> 
             <div className="nav-logout">

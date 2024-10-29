@@ -41,3 +41,12 @@ export interface IContext {
     account: IUser
     setAccount: ( user:IUser ) => void
 }
+
+export interface IPost{
+    id: number
+    title?:  string
+    picture? :  File | string| null
+    userId?: number
+}
+
+export type inputPost = Pick<IPost, 'title'|'picture'>//pick-y vercnum e hamapataskhany

@@ -231,3 +231,86 @@ input::placeholder {
   background: #630b0b;
   margin-left: 10px;
 }
+
+.post-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.posts h2 {
+  color: #42442e;
+  margin-bottom: 15px;
+}
+
+.post-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background-color: #9caaad;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.post-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  resize: vertical;
+  min-height: 80px;
+}
+
+.post-form input[type="file"] {
+  color: #42442e;
+}
+
+.post-form button {
+  align-self: flex-start;
+  background-color: #42442e;
+  color: #9caaad;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.post-form button:hover {
+  background-color: #9caaad;
+  color: #42442e;
+}
+
+.posts {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background-color: #9caaad;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.post {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #42442e;
+  color: #9caaad;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.post-files {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.post-files a {
+  color: #9caaad;
+  text-decoration: none;
+}
+
+.post-files a:hover {
+  text-decoration: underline;
+}

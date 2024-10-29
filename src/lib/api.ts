@@ -1,6 +1,6 @@
 import axios from "axios";
 import { BASE_URL } from "./constants";
-import { IResponse, inputUser, IUserLogin, IUserChangePassword} from "./types";
+import { IResponse, inputUser, IUserLogin, IUserChangePassword, IPost} from "./types";
 
 const Axios = axios.create({
     baseURL: BASE_URL,
@@ -39,6 +39,18 @@ export const apiUpdatePassword = async (body: IUserChangePassword):Promise<IResp
 
 export const apiUploadProfile = async (form:FormData):Promise<IResponse> => {
     const response = await Axios.patch('/profile/upload', form);
+
+    return response.data
+}
+
+export const apiUploadPost = async (body: FormData):Promise<IResponse> => {
+    const response = await Axios.post('/posts', body);
+    
+    return response.data
+}
+
+export const apiGetPost = async ():Promise<IResponse> => {
+    const response = await Axios.get('/posts');
     
     return response.data
 }

@@ -1,10 +1,13 @@
 import { DEFAULT_PIC } from "../../src/lib/constants";
 import { useRef, useState } from "react";
 import { apiUploadProfile } from "../../src/lib/api";
+import { useOutletContext } from "react-router-dom";
+import { IContext } from "../lib/types";
 
 export const ImagePicker = () => {
     const [preview, setPreview] = useState<string>("")
-    
+    const {account, setAccount} = useOutletContext<IContext>();
+
     const photo = useRef<HTMLInputElement | null>(null)
     
     const handlePreview = () => {
@@ -28,7 +31,7 @@ export const ImagePicker = () => {
                 form.append("picture",file)
                 apiUploadProfile(form)
                 .then(response => {
-                    window.location.reload()
+                    setAccount({...account, picture:response.payload as string})
                 })
             }
         }

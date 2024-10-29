@@ -7,6 +7,7 @@ import { Login } from './pages/Login'
 import { Profile } from './pages/Profile/Dashboard'
 import { Settings } from './pages/Profile/Settings'
 import { Layout } from './pages/Profile/Layout'
+import { Posts } from './pages/Profile/Posts'
 
 const routes = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const routes = createBrowserRouter([
       {
         path: 'settings',
         element: <Settings/>,
+      },
+      {
+        path: 'posts',
+        element: <Posts/>,
       }
     ]
   }
