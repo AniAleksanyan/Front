@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
 import { PostUpload } from "../../../components/post-upload"
 import { IPost } from "../../../lib/types"
-import { apiGetPost } from "../../../lib/api"
+import { apiDeletePost, apiGetPost } from "../../../lib/api"
+import { BASE_URL } from "../../../lib/constants"
 
 export const Posts = () => {
     const [posts, setPosts] = useState<IPost[]>([]);
@@ -12,14 +13,24 @@ export const Posts = () => {
                 if (response.status === 'ok' && response.payload) {
                     const payloadAsPosts = response.payload as IPost[];
                     setPosts(payloadAsPosts);
-
-                    console.log(payloadAsPosts)
                 }
             })
             .catch(error => {
                 console.error("Error fetching posts:", error);
             });
-    }, []);
+    }, posts);
+
+    const handlePostDelete = (e: React.MouseEvent<HTMLButtonElement>, postId: Number) => {
+        e.preventDefault();
+        
+        apiDeletePost(postId)
+        .then(response => {
+            setPosts(posts.filter(elm => 
+                elm.id != postId
+            )) 
+        })
+    }
+
     return <>
         <div className="post-container">
             <PostUpload/>
@@ -31,13 +42,14 @@ export const Posts = () => {
                             <div key={post.id} className="post-files">
                                 {post.picture ? (
                                         typeof post.picture === 'string' ? (
-                                            <img src={post.picture} alt={`Post ${post.id}`} />
+                                            <img src={BASE_URL+post.picture} alt={`Post ${post.id}`} />
                                         ) : (
-                                            <img src={URL.createObjectURL(post.picture)} alt={`Post ${post.id}`} />
+                                            <img src={BASE_URL+post.picture} alt={`Post ${post.id}`} />
                                         )
                                     ) : null}
                                 {post.title && <p>{post.title}</p>} 
-                            </div>
+                                <button onClick={(e) => handlePostDelete(e, post.id)} className="delete-post">Delete</button>
+                                </div>
                         ))
                     ) : (
                         <p>No posts available.</p>

@@ -9,6 +9,7 @@ export interface IUser{
     cover: string
 }
 export type inputUser = Pick<IUser, 'name'|'surname'|'login'|'password'>//pick-y vercnum e hamapataskhany
+export type IUsersData = Pick<IUser, 'name'|'surname'|'id'|'picture'|'cover'|'isPrivate'>//pick-y vercnum e hamapataskhany
 
 export interface IResponse{
     status: string

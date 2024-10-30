@@ -54,3 +54,15 @@ export const apiGetPost = async ():Promise<IResponse> => {
     
     return response.data
 }
+
+export const apiDeletePost = async (id: Number):Promise<IResponse> => {
+    const response = await Axios.delete('/posts/'+id);
+    
+    return response.data
+}
+
+export const apiSearch = async (text: String):Promise<IResponse> => {
+    const response = await Axios.get('/search/'+text);
+    
+    return response.data
+}

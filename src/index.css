@@ -200,7 +200,7 @@ input::placeholder {
   flex-direction: column;
 }
 
-.upload-photo img{
+.upload-photo img, .post-files img{
   width: 100px;
   height: 100px;
   object-fit: cover;
@@ -313,4 +313,23 @@ input::placeholder {
 
 .post-files a:hover {
   text-decoration: underline;
+}
+
+.post-files .delete-post{
+  color: #630b0b;
+  background: none;
+  border: none;
+  display: flex;
+  outline: none;
+}
+
+.user-data{
+  display: flex;
+  align-items: center;
+}
+
+.user-photo > img{
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
 }
